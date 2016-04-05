@@ -55,21 +55,21 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', function($scope
     }
   ];
 
-  $scope.slot1=$scope.options1[0];
-  $scope.slot2=$scope.options2[1];
-  $scope.slot3=$scope.options3[2];
+  $scope.slot1 = $scope.options1[0];
+  $scope.slot2 = $scope.options2[1];
+  $scope.slot3 = $scope.options3[2];
 
   $scope.spin = function() {
     $interval(function() {
-      $scope.slot1=$scope.options1[Math.floor(Math.random()*3)];  
+      $scope.slot1 = $scope.options1[Math.floor(Math.random()*3)];  
     }, 100, 10);
 
     $interval(function() {
-      $scope.slot2=$scope.options2[Math.floor(Math.random()*3)];
+      $scope.slot2 = $scope.options2[Math.floor(Math.random()*3)];
     }, 100, 20);
 
     $interval(function() {
-      $scope.slot3=$scope.options3[Math.floor(Math.random()*3)];
+      $scope.slot3 = $scope.options3[Math.floor(Math.random()*3)];
     }, 100, 40);
 
   }

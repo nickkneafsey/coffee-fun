@@ -10,10 +10,16 @@
   display: inline-block;
   outline:1px solid black;
   min-height: 200px;
+  padding:3%;
+  margin:0.3%;
 }
 
 .slotiamge{
   max-width: 100%;
+}
+
+.slottext{
+  text-align: center;
 }
 /*svg {
   width:100%;
