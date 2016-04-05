@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="coffeeApp">
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Coffee</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <section ng-controller="CoffeeController">
+      <div class="slots">
+        <div class="slot">
+          <img src={{slot1.image}} class="slotimage">
+          {{slot1.name}}
+        </div>
+        <div class="slot">
+          <img src={{slot2.image}} class="slotimage">
+          {{slot2.name}}
+        </div>
+        <div class="slot">
+         <img src={{slot3.image}} class="slotimage">
+          {{slot3.name}}
+        </div>
+      </div>
+
+    </section>
+   
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  
+    <script src="./app.js"></script>
+  </body>
+</html>

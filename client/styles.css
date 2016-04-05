@@ -1,0 +1,20 @@
+.slots {
+  /*width:100%;*/
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.slot {
+  width: 32%;
+  box-sizing: border-box;
+  display: inline-block;
+  outline:1px solid black;
+  min-height: 200px;
+}
+
+.slotiamge{
+  max-width: 100%;
+}
+/*svg {
+  width:100%;
+}*/
