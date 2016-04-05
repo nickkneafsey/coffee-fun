@@ -51,7 +51,7 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', function($scope
     {
       name: "espresso beans",
       type: "espresso",
-      image: "./svg/espresso_machine.svg"
+      image: "./svg/espresso_beans.svg"
     }
   ];
 
