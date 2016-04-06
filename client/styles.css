@@ -1,23 +1,53 @@
+
 .slots {
-  /*width:100%;*/
   box-sizing: border-box;
-  margin: 0 auto;
+  margin-left: 2%;
+  width: 98%;
+  padding-bottom: 1em;
+  background-color: black;
 }
 
+.slot-background {
+  background-color: black;
+  margin-bottom: 1em;
+}
 .slot {
-  width: 32%;
+  width: 31%;
   box-sizing: border-box;
   display: inline-block;
   outline:1em solid black;
   min-height: 200px;
   padding:3%;
   margin:0.3%;
+  background-color: white;
 }
 
-.slotiamge{
+
+.slotimage{
+  height: 75%;
   max-width: 100%;
 }
 
 .slottext{
   text-align: center;
 }
+
+.button {
+  margin-top: 1em;
+  margin-right: 1em;
+  width:95%;
+}
+
+
+/* NavBar*/ 
+.nav {
+  background-color: black;
+}
+
+h1 {
+  color: white;
+  margin: .2em;
+  font-family: 'Texta', 'AvenirNext-Regular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+  text-transform: uppercase;
+}
+
