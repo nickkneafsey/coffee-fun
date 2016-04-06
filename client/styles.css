@@ -4,12 +4,11 @@
   margin-left: 2%;
   width: 98%;
   padding-bottom: 1em;
-  background-color: black;
+  /*background-color: black;*/
 }
 
 .slot-background {
   background-color: black;
-  margin-bottom: 1em;
 }
 .slot {
   width: 31%;
@@ -55,5 +54,30 @@ h1 {
   margin: .2em;
   font-family: 'Texta', 'AvenirNext-Regular', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
   text-transform: uppercase;
+}
+
+/*Result*/
+.win {
+  width:100%;
+  background-color: #3DDE38;
+}
+
+.loss {
+  width:100%;
+  background-color: #E60B0B;
+}
+
+.result-text {
+  padding: .2em;
+  margin: 0;
+  text-align: center;
+}
+
+.win > .result-text {
+  font-size: 8vw;
+}
+
+.loss > .result-text {
+  font-size: 15vw;
 }
 

@@ -36,8 +36,12 @@
           <button ng-click="spin()" type="button" class="btn btn-secondary btn-lg btn-block button">Spin</button>
       </section>
       <section class="result">
-        {{result}}
-        {{drinkWon}}
+        <section ng-if="result==='win'" class="win">
+          <h1 class="result-text">You won {{drinkWon}}!!</h1>
+        </section>
+        <section ng-if="result==='loss'" class="loss">
+          <h1 class="result-text">YOU LOSE</h1>
+        </section>
       </section>
     </section>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
