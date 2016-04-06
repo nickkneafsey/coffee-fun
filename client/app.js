@@ -115,7 +115,7 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
 
 }]);
 
-coffeeApp.directive('slotEntry', function() {
+coffeeApp.directive('slotEntry',['$animate', function($animate) {
   return {
     restrict: 'AECM',
     scope: {
@@ -123,4 +123,4 @@ coffeeApp.directive('slotEntry', function() {
     },
     templateUrl: './directive_templates/slot.html'
   };
-});
+}]);
