@@ -14,25 +14,9 @@
     <section ng-controller="CoffeeController">
       <section class="slot-background">
         <div class="slots">
-          <div class="slot">
-            <img src={{slot1.image}} class="slotimage">
-            <div class="textbox">
-              <h3 class="slottext">{{slot1.name}}</h3>
-            </div>
-          </div>
-          <div class="slot">
-            <img src={{slot2.image}} class="slotimage">
-            <div class="textbox">
-             <h3 class="slottext">{{slot2.name}}</h3>
-            </div>
-          </div>
-          <div class="slot">
-            <img src={{slot3.image}} class="slotimage">
-            <div class="textbox">
-              <h3 class="slottext">{{slot3.name}}</h3>
-            </div>
-          </div>
-          
+          <slot-entry info="slot1"></slot-entry>
+          <slot-entry info="slot2"></slot-entry>
+          <slot-entry info="slot3"></slot-entry>
           <button ng-click="spin()" ng-disabled="disabled" type="button" class="btn btn-secondary btn-lg btn-block button">Spin</button>
       </section>
       <section class="result">
