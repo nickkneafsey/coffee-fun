@@ -62,9 +62,9 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
   $scope.drinkWon = null;
   var iterations = 0;
 
-  var slot1Interval = 10;
-  var slot2Interval = 20;
-  var slot3Interval = 40;
+  var slot1Interval = 20;
+  var slot2Interval = 40;
+  var slot3Interval = 80;
 
   $scope.options1 = DrinkOptions.options1;
   $scope.options2 = DrinkOptions.options2;
@@ -85,11 +85,11 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
     resetResult();
     $interval(function() {
       $scope.slot1 = $scope.options1[Math.floor(Math.random()*3)];  
-    }, 100, slot1Interval);
+    }, 50, slot1Interval);
 
     $interval(function() {
       $scope.slot2 = $scope.options2[Math.floor(Math.random()*3)];
-    }, 100, slot2Interval);
+    }, 50, slot2Interval);
 
     $interval(function() {
       $scope.slot3 = $scope.options3[Math.floor(Math.random()*3)];
@@ -97,7 +97,7 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
       if (iterations === slot3Interval) {
         getResult();
       }
-    }, 100, slot3Interval);
+    }, 50, slot3Interval);
   }
 
   var getResult = function() {
