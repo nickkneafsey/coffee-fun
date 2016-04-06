@@ -1,7 +1,7 @@
 var coffeeApp = angular.module('coffeeApp', []);
 
-coffeeApp.controller('CoffeeController', ['$scope', '$interval', function($scope, $interval) {
-  $scope.options1 = [
+coffeeApp.service("DrinkOptions", [ function() {
+  this.options1 = [
     {
       name: "coffee maker",
       type: "coffee",
@@ -19,7 +19,7 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', function($scope
     }
   ];
 
-  $scope.options2 = [
+  this.options2 = [
     {
       name: "coffee filter",
       type: "coffee",
@@ -37,7 +37,7 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', function($scope
     }
   ];
 
-  $scope.options3 = [
+  this.options3 = [
     {
       name: "coffee grounds",
       type: "coffee",
@@ -54,26 +54,62 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', function($scope
       image: "./svg/espresso_beans.svg"
     }
   ];
+}])
+
+coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions', function($scope, $interval, DrinkOptions) {
+  $scope.result = null;
+  $scope.drinkWon = null;
+  var iterations = 0;
+
+  var slot1Interval = 10;
+  var slot2Interval = 20;
+  var slot3Interval = 40;
+
+  $scope.options1 = DrinkOptions.options1;
+  $scope.options2 = DrinkOptions.options2;
+  $scope.options3 = DrinkOptions.options3;
 
   $scope.slot1 = $scope.options1[0];
   $scope.slot2 = $scope.options2[1];
   $scope.slot3 = $scope.options3[2];
+  
+  var resetResult = function() {
+    iterations = 0;
+    $scope.result = null;
+    $scope.drinkWon = null;
+  }
 
   $scope.spin = function() {
+    resetResult();
     $interval(function() {
       $scope.slot1 = $scope.options1[Math.floor(Math.random()*3)];  
-    }, 100, 10);
+    }, 100, slot1Interval);
 
     $interval(function() {
       $scope.slot2 = $scope.options2[Math.floor(Math.random()*3)];
-    }, 100, 20);
+    }, 100, slot2Interval);
 
     $interval(function() {
       $scope.slot3 = $scope.options3[Math.floor(Math.random()*3)];
-    }, 100, 40);
-
+      iterations ++;
+      if (iterations === slot3Interval) {
+        getResult();
+      }
+    }, 100, slot3Interval);
   }
 
+  var getResult = function() {
+    if ($scope.slot1.type === $scope.slot2.type && $scope.slot2.type === $scope.slot3.type) {
+      console.log("win")
+      $scope.result = "win";
+      $scope.drinkWon = $scope.slot1.type;
+    } else {
+      $scope.result = "loss";
+      console.log("loss")
+    }
+  };
+
+  resetResult();
   $scope.spin();
 
 }]);

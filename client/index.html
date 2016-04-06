@@ -11,26 +11,37 @@
   </head>
   <body ng-app="coffeeApp">
     <div layout="row" flex class="fill-height layout-row flex nav"><h1>Espresso Bar Slot Machine</h1></div>
-    <section class="slot-background" ng-controller="CoffeeController">
-      <div class="slots">
-        <div class="slot">
-          <img src={{slot1.image}} class="slotimage">
-          <h3 class="slottext">{{slot1.name}}</h3>
-        </div>
-        <div class="slot">
-          <img src={{slot2.image}} class="slotimage">
-          <h3 class="slottext">{{slot2.name}}</h3>
-        </div>
-        <div class="slot">
-         <img src={{slot3.image}} class="slotimage">
-          <h3 class="slottext">{{slot3.name}}</h3>
-        </div>
-        <button ng-click="spin()" type="button" class="btn btn-secondary btn-lg btn-block button">Spin</button>
-      </div>
+    <section ng-controller="CoffeeController">
+      <section class="slot-background">
+        <div class="slots">
+          <div class="slot">
+            <img src={{slot1.image}} class="slotimage">
+            <div class="textbox">
+              <h3 class="slottext">{{slot1.name}}</h3>
+            </div>
+          </div>
+          <div class="slot">
+            <img src={{slot2.image}} class="slotimage">
+            <div class="textbox">
+             <h3 class="slottext">{{slot2.name}}</h3>
+            </div>
+          </div>
+          <div class="slot">
+            <img src={{slot3.image}} class="slotimage">
+            <div class="textbox">
+              <h3 class="slottext">{{slot3.name}}</h3>
+            </div>
+          </div>
+          
+          <button ng-click="spin()" type="button" class="btn btn-secondary btn-lg btn-block button">Spin</button>
+      </section>
+      <section class="result">
+        {{result}}
+        {{drinkWon}}
+      </section>
     </section>
-  
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
