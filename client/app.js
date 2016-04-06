@@ -1,4 +1,4 @@
-var coffeeApp = angular.module('coffeeApp', []);
+var coffeeApp = angular.module('coffeeApp', ['ngMaterial']);
 
 coffeeApp.service("DrinkOptions", [ function() {
   this.options1 = [
@@ -57,6 +57,7 @@ coffeeApp.service("DrinkOptions", [ function() {
 }])
 
 coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions', function($scope, $interval, DrinkOptions) {
+  $scope.disabled = true;
   $scope.result = null;
   $scope.drinkWon = null;
   var iterations = 0;
@@ -77,6 +78,7 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
     iterations = 0;
     $scope.result = null;
     $scope.drinkWon = null;
+    $scope.disabled = true;
   }
 
   $scope.spin = function() {
@@ -100,13 +102,12 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
 
   var getResult = function() {
     if ($scope.slot1.type === $scope.slot2.type && $scope.slot2.type === $scope.slot3.type) {
-      console.log("win")
       $scope.result = "win";
       $scope.drinkWon = $scope.slot1.type;
     } else {
       $scope.result = "loss";
-      console.log("loss")
     }
+    $scope.disabled = false;
   };
 
   resetResult();

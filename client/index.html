@@ -33,7 +33,7 @@
             </div>
           </div>
           
-          <button ng-click="spin()" type="button" class="btn btn-secondary btn-lg btn-block button">Spin</button>
+          <button ng-click="spin()" ng-disabled="disabled" type="button" class="btn btn-secondary btn-lg btn-block button">Spin</button>
       </section>
       <section class="result">
         <section ng-if="result==='win'" class="win">
