@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body ng-app="coffeeApp">
-    <div layout="row" flex class="fill-height layout-row flex nav"><h1>Espresso Bar Slot Machine</h1></div>
+    <div layout="row" flex class="fill-height layout-row flex black-background"><h1>Espresso Bar Slot Machine</h1></div>
     <section ng-controller="CoffeeController">
-      <section class="slot-background">
+      <section class="black-background">
         <div class="slots">
           <slot-entry info="slot1" bool="slot1bool"></slot-entry>
           <slot-entry info="slot2" bool="slot2bool"></slot-entry>
@@ -20,10 +20,10 @@
           <button ng-click="spin()" ng-disabled="disabled" type="button" class="btn btn-secondary btn-lg btn-block button">Spin</button>
       </section>
       <section class="result">
-        <section ng-if="result==='win'" class="win">
+        <section ng-if="result==='win'" class="full-width win">
           <h1 class="result-text">You won {{drinkWon}}!!</h1>
         </section>
-        <section ng-if="result==='loss'" class="loss">
+        <section ng-if="result==='loss'" class="full-width loss">
           <h1 class="result-text">YOU LOSE</h1>
         </section>
       </section>
