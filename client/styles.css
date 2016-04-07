@@ -4,10 +4,12 @@
   margin-left: 2%;
   width: 98%;
   padding-bottom: 1em;
+  clip: rect(auto, auto, auto, auto);
 }
 
 .slot-background {
   background-color: black;
+
 }
 
 .slot {
@@ -20,12 +22,11 @@
   min-height: 200px;
   padding: 3%;
   background-color: white;
+  clip: rect(auto, auto, auto, auto);
+  overflow: hidden;
 }
 
-.slotimage{
-  max-height: 10em;
-  max-width: 100%;
-}
+
 
 .slottext{
   max-height: 2em;
@@ -77,5 +78,148 @@ h1 {
 
 .loss > .result-text {
   font-size: 15vw;
+}
+
+/*
+==============================================
+slideDown
+==============================================
+*/
+/*.ng-enter {
+  transition: 0.8s;
+  opacity:0;
+}
+
+.ng-enter-active {
+  opacity: 1;
+}
+
+.ng-leave{
+  transition: o.8s;
+  opacity:0;
+}*/
+/*
+.slidedown{
+  animation-name: slideDown;
+  -webkit-animation-name: slideDown;  
+
+  animation-duration: 0.1s; 
+  -webkit-animation-duration: 0.1s;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease;  
+
+  visibility: visible !important;           
+}*/
+
+.ng-leave{
+  animation-name: slideDown;
+  -webkit-animation-name: slideDown;  
+
+  animation-duration: 0.2s; 
+  -webkit-animation-duration: 0.2s;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease;  
+  overflow-y: hidden;
+
+  visibility: visible !important;           
+}
+
+.ng-enter{
+  animation-name: slideDown;
+  -webkit-animation-name: slideDown;  
+
+  animation-duration: 0.1s; 
+  -webkit-animation-duration: 0.1s;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease; 
+
+   
+  overflow-y: hidden;
+
+  visibility: visible !important;           
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  50%{
+    transform: translateY(-50%);
+  }
+  65%{
+    transform: translateY(-25%);
+  }
+  80%{
+    transform: translateY(-10%);
+  }    
+  100% {
+    transform: translateY(0%);
+  }   
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translateY(-100%);
+  }
+  50%{
+    -webkit-transform: translateY(-50%);
+  }
+  65%{
+    -webkit-transform: translateY(-25%);
+  }
+  80%{
+    -webkit-transform: translateY(-10%);
+  }   
+  100% {
+    -webkit-transform: translateY(0%);
+  } 
+}
+
+.ng-leave{
+  animation-name: slideDownMore;
+  -webkit-animation-name: slideDownMore;  
+
+  animation-duration: 0.1s; 
+  -webkit-animation-duration: 0.1s;
+
+  animation-timing-function: ease;  
+  -webkit-animation-timing-function: ease;  
+
+  visibility: visible !important;           
+}
+
+@keyframes slideDownMore {
+  0% {
+    transform: translateY(0%);
+  }
+  50%{
+    transform: translateY(50%);
+  }  
+  100% {
+    transform: translateY(100%);
+  }   
+}
+
+@-webkit-keyframes slideDownMore {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+  50%{
+    -webkit-transform: translateY(50%);
+  }
+  
+  100% {
+    -webkit-transform: translateY(100%);
+  } 
+}
+
+.slotimage{
+  max-height: 10em;
+  max-width: 100%;
+  overflow: hidden;
+
 }
 

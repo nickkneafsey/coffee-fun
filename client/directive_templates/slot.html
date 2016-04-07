@@ -1,6 +1,6 @@
-<div class="slot">
-  <img src={{info.image}} class="slotimage" ng-class="animation">
+<div ng-model="bindModel" class="slot">
+  <img ng-if="bool" src={{info.image}} class="slotimage">
   <div class="textbox">
-    <h3 class="slottext">{{info.name}}</h3>
+    <h5 class="slottext">{{info.name}}</h5>
   </div>
 </div>

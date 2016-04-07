@@ -1,4 +1,4 @@
-var coffeeApp = angular.module('coffeeApp', ['ngMaterial']);
+var coffeeApp = angular.module('coffeeApp', ['ngMaterial', 'ngAnimate']);
 
 coffeeApp.service("DrinkOptions", [ function() {
   this.options1 = [
@@ -57,14 +57,17 @@ coffeeApp.service("DrinkOptions", [ function() {
 }])
 
 coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions', function($scope, $interval, DrinkOptions) {
+  $scope.slot1bool = false;
+  $scope.slot2bool = false;
+  $scope.slot3bool = false;
   $scope.disabled = true;
   $scope.result = null;
   $scope.drinkWon = null;
   var iterations = 0;
 
-  var slot1Interval = 20;
-  var slot2Interval = 40;
-  var slot3Interval = 80;
+  var slot1Interval = 21;
+  var slot2Interval = 41;
+  var slot3Interval = 81;
 
   $scope.options1 = DrinkOptions.options1;
   $scope.options2 = DrinkOptions.options2;
@@ -80,24 +83,36 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
     $scope.drinkWon = null;
     $scope.disabled = true;
   }
+  
+  var setTrue = function() {
+    $scope.sometimesTrue = true;
+  }
 
+  var setFalse = function() {
+    $scope.sometimesTrue = false;
+  }
+ 
   $scope.spin = function() {
+
     resetResult();
     $interval(function() {
-      $scope.slot1 = $scope.options1[Math.floor(Math.random()*3)];  
-    }, 50, slot1Interval);
+      $scope.slot1bool = !$scope.slot1bool;
+      $scope.slot1 = $scope.options1[Math.floor(Math.random()*3)];
+    }, 200, slot1Interval);
 
     $interval(function() {
+      $scope.slot2bool = !$scope.slot2bool;
       $scope.slot2 = $scope.options2[Math.floor(Math.random()*3)];
-    }, 50, slot2Interval);
+    }, 200, slot2Interval);
 
     $interval(function() {
+      $scope.slot3bool = !$scope.slot3bool;
       $scope.slot3 = $scope.options3[Math.floor(Math.random()*3)];
       iterations ++;
       if (iterations === slot3Interval) {
         getResult();
       }
-    }, 50, slot3Interval);
+    }, 200, slot3Interval);
   }
 
   var getResult = function() {
@@ -108,6 +123,9 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
       $scope.result = "loss";
     }
     $scope.disabled = false;
+    $scope.slot1bool = true;
+    $scope.slot2bool = true;
+    $scope.slot3bool = true;
   };
 
   resetResult();
@@ -119,7 +137,9 @@ coffeeApp.directive('slotEntry',['$animate', function($animate) {
   return {
     restrict: 'AECM',
     scope: {
-      info: '='
+      info: '=',
+      bindModel: '=ngModel',
+      bool: '='
     },
     templateUrl: './directive_templates/slot.html'
   };
