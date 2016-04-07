@@ -1,15 +1,10 @@
 /*Slot Styles*/
+
 .slots {
   box-sizing: border-box;
   margin-left: 2%;
   width: 98%;
   padding-bottom: 1em;
-  clip: rect(auto, auto, auto, auto);
-}
-
-.slot-background {
-  background-color: black;
-
 }
 
 .slot {
@@ -22,19 +17,20 @@
   min-height: 200px;
   padding: 3%;
   background-color: white;
-  clip: rect(auto, auto, auto, auto);
   overflow: hidden;
 }
 
-
-
-.slottext{
-  max-height: 2em;
-  text-align: center;
+.slot-background {
+  background-color: black;
 }
 
 .textbox {
   height: 2.7em;
+}
+
+.slottext {
+  max-height: 2em;
+  text-align: center;
 }
 
 .button {
@@ -43,7 +39,8 @@
   width:96%;
 }
 
-/* NavBar*/ 
+/* NavBar*/
+
 .nav {
   background-color: black;
 }
@@ -56,6 +53,7 @@ h1 {
 }
 
 /*Result*/
+
 .win {
   width:100%;
   background-color: #3DDE38;
@@ -80,44 +78,14 @@ h1 {
   font-size: 15vw;
 }
 
-/*
-==============================================
-slideDown
-==============================================
-*/
-/*.ng-enter {
-  transition: 0.8s;
-  opacity:0;
-}
-
-.ng-enter-active {
-  opacity: 1;
-}
+/*Animations*/
 
 .ng-leave{
-  transition: o.8s;
-  opacity:0;
-}*/
-/*
-.slidedown{
   animation-name: slideDown;
   -webkit-animation-name: slideDown;  
 
   animation-duration: 0.1s; 
   -webkit-animation-duration: 0.1s;
-
-  animation-timing-function: ease;  
-  -webkit-animation-timing-function: ease;  
-
-  visibility: visible !important;           
-}*/
-
-.ng-leave{
-  animation-name: slideDown;
-  -webkit-animation-name: slideDown;  
-
-  animation-duration: 0.2s; 
-  -webkit-animation-duration: 0.2s;
 
   animation-timing-function: ease;  
   -webkit-animation-timing-function: ease;  
@@ -136,9 +104,6 @@ slideDown
   animation-timing-function: ease;  
   -webkit-animation-timing-function: ease; 
 
-   
-  overflow-y: hidden;
-
   visibility: visible !important;           
 }
 
@@ -148,13 +113,7 @@ slideDown
   }
   50%{
     transform: translateY(-50%);
-  }
-  65%{
-    transform: translateY(-25%);
-  }
-  80%{
-    transform: translateY(-10%);
-  }    
+  }  
   100% {
     transform: translateY(0%);
   }   
@@ -166,13 +125,7 @@ slideDown
   }
   50%{
     -webkit-transform: translateY(-50%);
-  }
-  65%{
-    -webkit-transform: translateY(-25%);
-  }
-  80%{
-    -webkit-transform: translateY(-10%);
-  }   
+  } 
   100% {
     -webkit-transform: translateY(0%);
   } 

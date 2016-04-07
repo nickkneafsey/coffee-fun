@@ -65,9 +65,10 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
   $scope.drinkWon = null;
   var iterations = 0;
 
-  var slot1Interval = 21;
-  var slot2Interval = 41;
-  var slot3Interval = 81;
+  var slot1Iterations = 11;
+  var slot2Iterations = 21;
+  var slot3Iterations = 31;
+  var slotsInterval = 100;
 
   $scope.options1 = DrinkOptions.options1;
   $scope.options2 = DrinkOptions.options2;
@@ -82,37 +83,31 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
     $scope.result = null;
     $scope.drinkWon = null;
     $scope.disabled = true;
+    $scope.slot1bool = false;
+    $scope.slot2bool = false;
+    $scope.slot3bool = false;
   }
   
-  var setTrue = function() {
-    $scope.sometimesTrue = true;
-  }
-
-  var setFalse = function() {
-    $scope.sometimesTrue = false;
-  }
- 
   $scope.spin = function() {
-
     resetResult();
     $interval(function() {
       $scope.slot1bool = !$scope.slot1bool;
       $scope.slot1 = $scope.options1[Math.floor(Math.random()*3)];
-    }, 200, slot1Interval);
+    }, slotsInterval, slot1Iterations);
 
     $interval(function() {
       $scope.slot2bool = !$scope.slot2bool;
       $scope.slot2 = $scope.options2[Math.floor(Math.random()*3)];
-    }, 200, slot2Interval);
+    }, slotsInterval, slot2Iterations);
 
     $interval(function() {
       $scope.slot3bool = !$scope.slot3bool;
       $scope.slot3 = $scope.options3[Math.floor(Math.random()*3)];
       iterations ++;
-      if (iterations === slot3Interval) {
+      if (iterations === slot3Iterations) {
         getResult();
       }
-    }, 200, slot3Interval);
+    }, slotsInterval, slot3Iterations);
   }
 
   var getResult = function() {
@@ -123,9 +118,6 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
       $scope.result = "loss";
     }
     $scope.disabled = false;
-    $scope.slot1bool = true;
-    $scope.slot2bool = true;
-    $scope.slot3bool = true;
   };
 
   resetResult();
@@ -138,7 +130,6 @@ coffeeApp.directive('slotEntry',['$animate', function($animate) {
     restrict: 'AECM',
     scope: {
       info: '=',
-      bindModel: '=ngModel',
       bool: '='
     },
     templateUrl: './directive_templates/slot.html'
