@@ -18,42 +18,6 @@ coffeeApp.service("DrinkOptions", [ function() {
       image: "./svg/espresso_machine.svg"
     }
   ];
-
-  this.options2 = [
-    {
-      name: "coffee filter",
-      type: "coffee",
-      image: "./svg/coffee_filter.svg"
-    },
-    {
-      name: "tea strainer",
-      type: "tea",
-      image: "./svg/tea_strainer.svg"
-    },
-    {
-      name: "espresso tamper",
-      type: "espresso",
-      image: "./svg/espresso_tamper.svg"
-    }
-  ];
-
-  this.options3 = [
-    {
-      name: "coffee grounds",
-      type: "coffee",
-      image: "./svg/coffee_beans.svg"
-    },
-    {
-      name: "loose tea",
-      type: "tea",
-      image: "./svg/tea_leaves.svg"
-    },
-    {
-      name: "espresso beans",
-      type: "espresso",
-      image: "./svg/espresso_beans.svg"
-    }
-  ];
 }])
 
 coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions', function($scope, $interval, DrinkOptions) {
@@ -71,12 +35,12 @@ coffeeApp.controller('CoffeeController', ['$scope', '$interval', 'DrinkOptions',
   var slotsInterval = 100;
 
   $scope.options1 = DrinkOptions.options1;
-  $scope.options2 = DrinkOptions.options2;
-  $scope.options3 = DrinkOptions.options3;
+  $scope.options2 = DrinkOptions.options1;
+  $scope.options3 = DrinkOptions.options1;
 
   $scope.slot1 = $scope.options1[0];
-  $scope.slot2 = $scope.options2[1];
-  $scope.slot3 = $scope.options3[2];
+  $scope.slot2 = $scope.options1[1];
+  $scope.slot3 = $scope.options1[2];
   
   var resetResult = function() {
     iterations = 0;
